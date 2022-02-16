@@ -1,16 +1,16 @@
-import { takeEvery, put } from 'redux-saga/effects'
+import { take, put, call, takeEvery } from 'redux-saga/effects';
+import { IMAGES } from '../constants'
 
 
-function* workerSaga() {
+function* handleImagesLoad() {
     //put lets us dispatch actions
-    yield put({ type: 'ACTION_FROM_WORKER' })
+    console.log('fetching unsplash images')
 }
 
 //watcher saga
 function* rootSaga() {
-    // looks for a particular action and calls worker saga
-    yield takeEvery('HELLO', workerSaga)
-
+    //take -> handles only once, no matter how many times we dispatch an action; takeEvery -> handles each time an action is dispatched
+    yield takeEvery(IMAGES.LOAD, handleImagesLoad)
 }
 
 export default rootSaga;

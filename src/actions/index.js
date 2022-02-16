@@ -1,9 +1,9 @@
 import { IMAGES } from '../constants';
 
 
-const loadImages = () => {
+const loadImages = () => ({
     type: IMAGES.LOAD
-}
+})
 
 const setImages = images => ({
     type: IMAGES.LOAD_SUCCESS,
